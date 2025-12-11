@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* src/index.css - modern blue/black theme */
+:root{
+  --bg:#071122;
+  --card:#071a2b;
+  --muted:#9bbfe8;
+  --accent:#5cc8ff;
+  --accent2:#9be564;
+  --panel:#081826;
+  --border:rgba(255,255,255,0.05);
+  --glass: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  --text:#dcefff;
+  --muted-2:#a8c7ef;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+
+.app-root{display:flex;flex-direction:column;min-height:100vh;padding:18px;gap:16px}
+
+/* Top bar */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(7,17,34,0.6), rgba(4,10,20,0.4));border:1px solid var(--border);box-shadow:0 6px 18px rgba(3,9,18,0.6)}
+.brand h1{margin:0;font-size:18px;color:var(--accent)}
+.brand .subtitle{font-size:12px;color:var(--muted-2)}
+.status-row{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.status-pill{padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px}
+.status-pill.ok{background:rgba(92,200,255,0.12);color:var(--accent);border:1px solid rgba(92,200,255,0.12)}
+.status-pill.bad{background:rgba(255,50,50,0.08);color:#ff7b7b;border:1px solid rgba(255,50,50,0.06)}
+.small{font-size:11px;color:var(--muted)}
+
+/* main layout */
+.main-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
+.panel{background:var(--panel);border-radius:12px;padding:14px;border:1px solid var(--border);box-shadow:0 8px 24px rgba(2,6,12,0.6)}
+.panel-header h2,h3{margin:0;color:var(--accent);font-size:16px}
+.panel-header .meta{font-size:12px;color:var(--muted);margin-top:6px}
+.chart-area{margin-top:12px}
+
+/* KPI row */
+.kpi-row{display:flex;gap:12px;margin-top:12px}
+.kpi{flex:1;padding:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+.kpi-label{font-size:11px;color:var(--muted)}
+.kpi-value{font-weight:700;font-size:16px;color:var(--text)}
+.smalllink a{color:var(--accent);text-decoration:underline}
+
+/* telemetry + events */
+.telemetry{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
+.row-label{font-size:12px;color:var(--muted)}
+.row-value{font-weight:600}
+
+.flag{color:#ff7b7b;font-weight:700}
+.ok{color:#8fe38f;font-weight:700}
+
+/* events table */
+.events-list{margin-top:10px;max-height:280px;overflow:auto}
+.events-table{width:100%;border-collapse:collapse}
+.events-table th, .events-table td{padding:8px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+.events-table tbody tr:hover{background:rgba(255,255,255,0.01)}
+
+/* misc */
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.footer{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;padding:6px 8px}
